@@ -18,7 +18,8 @@ app.set('port', port);
 // Set up mongoose connection
 const mongoose = require("mongoose");
 
-const mongoDB = require("dotenv").config().parsed.MONGO_URI;
+require("dotenv").config();
+const mongoDB = process.env.MONGO_URI;
 
 async function connectMongoose() {
   await mongoose.connect(mongoDB);
